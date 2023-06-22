@@ -1,4 +1,5 @@
 <?php 
+
 namespace Tests\Feature;
 
 use App\Data\Bar;
@@ -8,7 +9,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class DependencyInjectionTest extends TestCase {
-    public function testDependencyInjection() {
+    public function testDependencyInjection() 
+    {
         $foo=new Foo();
 
         //Constractor

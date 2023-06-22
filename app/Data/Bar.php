@@ -1,4 +1,6 @@
-<?php namespace App\Data;
+<?php 
+
+namespace App\Data;
 
 class Bar {
     public Foo $foo;
@@ -8,6 +10,6 @@ class Bar {
     }
 
     public function bar(): string {
-        return $this->$foo() . ' and Bar';
+        return $this->foo->foo() . ' and Bar';
     }
 }
