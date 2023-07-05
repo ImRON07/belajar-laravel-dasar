@@ -2,9 +2,9 @@
 
 return [
     "author" => [
-        "first" => env('NAME_FIRST', 'Yapet'),
+        "first" => env('NAME_FIRST', 'Imron'),
         "last" => env('NAME_LAST', "Lukita")
     ],
-    "email" => "echo.lukitayapet@gmail.com",
-    "web" => "https://www.lukitayapet.com"
+    "email" => "echo.lukitaImron@gmail.com",
+    "web" => "https://www.lukitaImron.com"
 ];

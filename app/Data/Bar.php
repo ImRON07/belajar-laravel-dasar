@@ -1,15 +1,18 @@
-<?php 
+<?php
 
 namespace App\Data;
 
-class Bar {
+class Bar
+{
     public Foo $foo;
+    public function __construct(Foo $foo)
 
-    public function __construct(Foo $foo) {
+    {
         $this->foo=$foo;
     }
 
-    public function bar(): string {
+    public function bar(): string
+    {
         return $this->foo->foo() . ' and Bar';
     }
 }

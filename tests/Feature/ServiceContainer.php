@@ -36,14 +36,14 @@ class ServiceContainer extends TestCase
         */
 
         $this->app->bind(Person::class, function ($app){
-            return new Person("Yapet", "Lukita");
+            return new Person("Imron", "Lukita");
         });
 
-        $person1 = $this->app->make(Person::class); //closure() //new Person("Yapet", "Lukita");
-        $person2 = $this->app->make(Person::class); //closure() //new Person("Yapet", "Lukita");
+        $person1 = $this->app->make(Person::class); //closure() //new Person("Imron", "Lukita");
+        $person2 = $this->app->make(Person::class); //closure() //new Person("Imron", "Lukita");
 
-        self::assertEquals('Yapet', $person1->firstName);
-        self::assertEquals('Yapet', $person2->firstName);
+        self::assertEquals('Imron', $person1->firstName);
+        self::assertEquals('Imron', $person2->firstName);
         self::assertNotSame($person1, $person2);
     }
 
@@ -51,31 +51,31 @@ class ServiceContainer extends TestCase
     {
 
         $this->app->singleton(Person::class, function ($app){
-            return new Person("Yapet", "Lukita");
+            return new Person("Imron", "Lukita");
         });
 
-        $person1 = $this->app->make(Person::class); //new Person("Yapet", "Lukita"); if not exists
+        $person1 = $this->app->make(Person::class); //new Person("Imron", "Lukita"); if not exists
         $person2 = $this->app->make(Person::class); //return existing
         $person3 = $this->app->make(Person::class); //return existing
         $person4 = $this->app->make(Person::class); //return existing
 
-        self::assertEquals('Yapet', $person1->firstName);
-        self::assertEquals('Yapet', $person2->firstName);
+        self::assertEquals('Imron', $person1->firstName);
+        self::assertEquals('Imron', $person2->firstName);
         self::assertSame($person1, $person2); //ganti menjadi assertSame karena person1 dan 2 merupakan objct yang sama
     }
 
     public function testInstance()
     {
-        $person = new Person("Yapet", "Lukita");
+        $person = new Person("Imron", "Lukita"); //untuk inisialisasi objek dilakukan diawal
         $this->app->instance(Person::class, $person);
 
-        $person1 = $this->app->make(Person::class); //new Person("Yapet", "Lukita"); if not exists
+        $person1 = $this->app->make(Person::class); //new Person("Imron", "Lukita"); if not exists
         $person2 = $this->app->make(Person::class); //return existing
         $person3 = $this->app->make(Person::class); //return existing
         $person4 = $this->app->make(Person::class); //return existing
 
-        self::assertEquals('Yapet', $person1->firstName);
-        self::assertEquals('Yapet', $person2->firstName);
+        self::assertEquals('Imron', $person1->firstName);
+        self::assertEquals('Imron', $person2->firstName);
         self::assertSame($person1, $person2); //ganti menjadi assertSame karena person1 dan 2 merupakan objct yang sama
     }
 
@@ -124,6 +124,6 @@ class ServiceContainer extends TestCase
 
         $HelloService = $this->app->make(HelloService::class);
 
-        self::assertEquals('Halo Yapet', $HelloService->hello('Yapet'));
+        self::assertEquals('Halo Imron', $HelloService->hello('Imron'));
     }
 }
